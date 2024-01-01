@@ -2,8 +2,8 @@ import React from 'react'
 
 export default function Compenent(props) {
 
-    
-   // function IncrementQuantity(){}
+
+    // function IncrementQuantity(){}
     return (
 
         <>
@@ -13,12 +13,17 @@ export default function Compenent(props) {
 
                 </div>
                 <div className='col-8'>
-                    <button type="button" class="btn btn-primary" onClick={()=>{props.DecrementQuantity(props.index);}}>-</button>
+                    <button type="button" class="btn btn-primary" onClick={() => { props.DecrementQuantity(props.index); }}>-</button>
                     <button type="button" class="btn btn-secondary">{props.product.Quantity}</button>
-                    <button type="button" class="btn btn-primary" onClick={()=>{props.IncrementQuantity(props.index);}}>+</button>
+                    <button type="button" class="btn btn-primary" onClick={() => { props.IncrementQuantity(props.index); }}>+</button>
 
                     <div className='col-9'>
                         {props.product.Quantity * props.product.Price}
+
+                    </div>
+
+                    <div className='col-9 text-center="true"'>
+                        <button className='btn btn-danger' onClick={() => { props.RemoveItem(props.index)}}> Remove Item</button>
 
                     </div>
 

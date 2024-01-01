@@ -6,19 +6,25 @@ export default function ProductList(props) {
 
     //const choices= () => {""};
     //console.log(props)
-  //  prompt("hi");
+    //  prompt("hi");
 
-    return (       
-props.productList.map((product,a)=>{
+    return (
 
-return <Compenent product={product} key={a} IncrementQuantity={props.IncrementQuantity} index={a} 
-DecrementQuantity={props.DecrementQuantity} 
+        props.productList.length > 0 ?
+            props.productList.map((product, a) => {
 
 
-/>
-}
-)
-       
+                return <Compenent product={product} key={a} IncrementQuantity={props.IncrementQuantity} index={a}
+                    DecrementQuantity={props.DecrementQuantity} RemoveItem={props.RemoveItem}
+                   AddItem={props.AddItem} 
+                   
+
+                />
+            }
+            )
+            :
+            <h1> "nothing"</h1>
+
 
     )
 }

@@ -10,6 +10,7 @@ import ProductList from './ProductList';
 import Compenent from './Compenent';
 import React, { useState } from "react";
 import Foot from './Foot';
+import AddNew from './AddNew';
 
 function App() {
 
@@ -69,24 +70,55 @@ function App() {
   };
 
 
-  const Reset=()=>{
+  const Reset = () => {
     let newProductList = [...productList];
-    newProductList.map((product)=>{product.Quantity=0;
+    newProductList.map((product) => {
+      product.Quantity = 0;
     });
     setproductList(newProductList);
     setTotalAmount(0);
   };
-  
+
+  const RemoveItem = (index) => {
+    let newProductList = [...productList];
+    console.log(newProductList);
+    newProductList.splice(index, 1);
+    setproductList(newProductList);
+
+  }
+
+
+    const AddItem = (Name,Price) => {
+      let newProductList = [...productList];
+      newProductList.push({
+        Price: Price,
+      Name: Name,
+      Quantity: 0,})
+    setproductList(newProductList);
+
+      
+
+
+
+
+
+
+
+  }
+
 
 
   return (
     <>
       <Navbar />
+      <AddNew  AddItem={AddItem}/>
+
+
       <div className='container mt-5'>
-        <ProductList productList={productList} IncrementQuantity={IncrementQuantity} DecrementQuantity={DecrementQuantity} />
+        <ProductList productList={productList} IncrementQuantity={IncrementQuantity} DecrementQuantity={DecrementQuantity} RemoveItem={RemoveItem} />
       </div>
 
-      <Foot TotalAmount={TotalAmount}  Reset={Reset}/>
+      <Foot TotalAmount={TotalAmount} Reset={Reset} />
       {/* <div style={{background:"green",textAlign:'center'}}>
 <ToastContainer/>
    <h1 style={{ background:'Yellow'}}>Home Page </h1>
