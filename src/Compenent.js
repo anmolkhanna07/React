@@ -24,8 +24,9 @@ export default function Compenent(props) {
 
                     <div className='col-9 text-center="true"'>
                         <button className='btn btn-danger' onClick={() => { props.RemoveItem(props.index)}}> Remove Item</button>
-
                     </div>
+
+                    
 
                 </div>
             </h2>

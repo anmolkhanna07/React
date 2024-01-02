@@ -17,20 +17,21 @@ function App() {
 
   const product = [
     {
-      Price: 5000,
       Name: "Stock market course",
+      Price: 5000,
+     
       Quantity: 0,
     },
     {
-
-      Price: 10000,
       Name: "Options  course",
+      Price: 10000,
+     
       Quantity: 0,
     },
     {
-
-      Price: 6000,
       Name: "Futures  course",
+      Price: 6000,
+     
       Quantity: 0,
 
     }
@@ -91,8 +92,9 @@ function App() {
     const AddItem = (Name,Price) => {
       let newProductList = [...productList];
       newProductList.push({
+        
+        Name: Name,
         Price: Price,
-      Name: Name,
       Quantity: 0,})
     setproductList(newProductList);
 

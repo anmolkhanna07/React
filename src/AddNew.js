@@ -1,43 +1,62 @@
 import React, { Component } from 'react'
 
-export default class AddNew extends Component {
-  render() {
-    return (
+
+class AddNew extends React.Component
+ {
+  
+
+constructor(props){
+super(props);
+this.state={
+productName:"",
+productPrice:0,
+
+}
+
+      }
+      render() {
+        return (
       
-        <form className='container'>
+        <form className='container' onSubmit={(e)=> {
+          e.preventDefault();
+
+        this.props.AddItem(this.state.productName,Number(this.state.productPrice));
+        }}>
           
         <div className="col-6 mb-3">
-          <label htmlFor="exampleInputEmail1" className="form-label">
+          <label className="form-label">
             Course Name
           </label>
           <input
-            type="email"
+            type="text"
             className="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
+            id="inputName"
+            aria-describedby="name"
+            name="productName"
+            onChange={(e)=>{
+              this.setState({productName: e.currentTarget.value})
+            }}
+            value={this.state.productName}
           />
-          <div id="emailHelp" className="form-text">
           
-         
-        </div>
         </div>
         <div className="col-6 mb-3">
-          <label htmlFor="exampleInputPassword1" className="form-label">
+          <label  className="form-label">
             Price
           </label>
           <input
-            type="password"
-            className="form-control"
-            id="exampleInputPassword1"
+             type="number"
+             className="form-control"
+             id="price"
+             name="productPrice"
+            onChange={(e)=>{
+              this.setState({productPrice: e.currentTarget.value})
+            }}
+            value={this.state.productPrice}
           />
         </div>
-        <div className="mb-3 form-check">
-          <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-          <label className="form-check-label" htmlFor="exampleCheck1">
-            Check me out
-          </label>
-        </div>
-        <button type="submit" className="btn btn-primary" onClick={()=>(this.props.AddItem)}> 
+        
+        <button type="submit" className="btn btn-primary" > 
           Submit
         </button>
       </form>
@@ -45,3 +64,4 @@ export default class AddNew extends Component {
     )
   }
 }
+export default AddNew;

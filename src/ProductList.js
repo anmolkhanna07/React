@@ -16,7 +16,7 @@ export default function ProductList(props) {
 
                 return <Compenent product={product} key={a} IncrementQuantity={props.IncrementQuantity} index={a}
                     DecrementQuantity={props.DecrementQuantity} RemoveItem={props.RemoveItem}
-                   AddItem={props.AddItem} 
+            
                    
 
                 />
